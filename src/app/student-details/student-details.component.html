@@ -1,0 +1,29 @@
+<div *ngIf="student" class="card shadow-sm w-75 mx-auto mt-4">
+  <div class="card-body">
+    <h2 class="card-title text-center mb-3">
+      {{ student.firstName }} {{ student.lastName }}
+    </h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Age:</strong> {{ student.age }}</li>
+      <li class="list-group-item"><strong>Email:</strong> {{ student.email }}</li>
+      <li class="list-group-item"><strong>Department:</strong> {{ student.department }}</li>
+      <li class="list-group-item"><strong>GPA:</strong> {{ student.GPA }}</li>
+      <li class="list-group-item"><strong>Enrollment Date:</strong> {{ student.enrollmentDate | date }}</li>
+      <li class="list-group-item"><strong>Status:</strong> {{ student.isActive ? 'Active' : 'Inactive' }}</li>
+      <li class="list-group-item"><strong>Address:</strong> {{ student.address }}, {{ student.city }}, {{ student.country }}</li>
+      <li class="list-group-item"><strong>Phone:</strong> {{ student.phone }}</li>
+      <li class="list-group-item"><strong>Level:</strong> {{ student.level }}</li>
+    </ul>
+    <div class="text-center mt-3">
+      <button class="btn btn-secondary" [routerLink]="['/students']">
+        ← Back to List
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="!student" class="text-center mt-5">
+  <h3>Student not found</h3>
+  <button class="btn btn-secondary mt-3" [routerLink]="['/students']">
+    ← Back to List
+  </button>
+</div>

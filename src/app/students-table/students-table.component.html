@@ -1,0 +1,19 @@
+<table  class="table table-striped table-hover table-bordered table-sm">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Actions</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+<tr *ngFor="let student of students$ | async">
+  <td text-center align-middle fw-bold>{{ student.id }}</td>
+  <td text-center align-middle fw-bold>{{ student.firstName }} {{ student.lastName }}</td>
+  <td text-center align-middle fw-bold><button (click)="delete(student.id)" class="btn">Delete</button></td>
+   <td>
+    <button [routerLink]="['/student', student.id]" class="btn">Show Details</button>
+
+  </td>
+</tr>
+</table>
